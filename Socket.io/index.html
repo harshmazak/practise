@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Io</title>
+</head>
+<body>
+    <h1> this is html of socket</h1>
+    <div id="testDiv">
+<div>
+    <input type="text" name="" id="inputbox">
+    <button  onclick="send()">submit</button>
+</div>
+    </div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script >
+    let socket=io()
+    socket.on('messageEvent',(msg)=>{
+        document.getElementById('testDiv').innerHTML=msg
+    })
+function send()
+{
+    let inputvalue=document.getElementById('inputbox').value;
+    socket.emit("inputData",inputvalue)
+    // socket.send(inputvalue)
+}
+</script>
+</body>
+</html>
